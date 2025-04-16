@@ -45,12 +45,12 @@ a {
 }
 
 .hero-content h1 {
-  font-size: 2.5rem; /* Уменьшил размер заголовка */
+  font-size: 2.5rem;
   margin-bottom: 10px;
 }
 
 .hero-content p {
-  font-size: 1.1rem; /* Уменьшил размер текста */
+  font-size: 1.1rem;
   margin-bottom: 20px;
 }
 
@@ -66,7 +66,7 @@ a {
 
 .about-content {
   display: flex;
-  align-items: flex-start; /* Изменено на flex-start для выравнивания по верхнему краю */
+  align-items: flex-start;
   gap: 40px;
   max-width: 1200px;
   margin: 0 auto;
@@ -74,25 +74,25 @@ a {
 
 .about-image {
   flex: 1;
-  text-align: center; /* Центрирование изображения */
+  text-align: center;
 }
 
 .about-image img {
-  width: 250px; /* Увеличено для большего акцента */
+  width: 250px;
   height: 250px;
   border-radius: 50%;
   object-fit: cover;
-  border: 5px solid #fff; /* Более толстая рамка */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Тень для выделения */
+  border: 5px solid #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .about-text {
   flex: 2;
-  max-width: 800px; /* Увеличено для большего пространства */
+  max-width: 800px;
 }
 
 .about-text h2 {
-  font-size: 2.5rem; /* Увеличено для акцента */
+  font-size: 2.5rem;
   margin-bottom: 20px;
   color: #961414;
 }
@@ -129,7 +129,7 @@ a {
 }
 
 .about-text p {
-  font-size: 1.1rem; /* Увеличено для лучшей читаемости */
+  font-size: 1.1rem;
   line-height: 1.6;
   color: #dadada;
 }
@@ -153,15 +153,20 @@ a {
 
 .portfolio-tabs {
   margin-bottom: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
 }
 
 .tab-button {
   padding: 10px 20px;
-  margin: 0 5px;
   border: none;
   background-color: #eee;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: all 0.3s ease;
+  border-radius: 5px;
+  font-family: "Montserrat", sans-serif;
 }
 
 .tab-button.active {
@@ -173,31 +178,226 @@ a {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .portfolio-item img {
   width: 100%;
   border-radius: 10px;
   transition: transform 0.3s ease;
+  cursor: pointer;
 }
 
 .portfolio-item img:hover {
+  transform: scale(1.03);
+}
+
+/* Квадратные превью для кейсов */
+.portfolio-item.cases img {
+  width: 250px;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin: 0 auto;
+  display: block;
+}
+
+/* Модальное окно для обычных работ */
+#modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.9);
+}
+
+.modal-content {
+  margin: auto;
+  display: block;
+  max-width: 90%;
+  max-height: 90%;
+  margin-top: 50px;
+}
+
+.close {
+  position: absolute;
+  top: 20px;
+  right: 35px;
+  color: #961414;
+  font-size: 40px;
+  font-weight: bold;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+  color: #ff0000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.modal-description {
+  text-align: center;
+  color: #fff;
+  font-size: 1rem;
+  margin-top: 10px;
+  padding: 10px;
+  background-color: rgba(0, 0, 0, 0.7);
+  border-radius: 5px;
+  max-width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Модальное окно слайд-шоу */
+#slides-modal {
+  display: none;
+  position: fixed;
+  z-index: 1001;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.9);
+}
+
+.slides-container {
+  position: relative;
+  width: 90%;
+  max-width: 1200px;
+  height: 80vh;
+  margin: 5vh auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.slide {
+  display: none;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+}
+
+.slide.active {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.slide img {
+  max-height: 80vh;
+  max-width: 100%;
+  object-fit: contain;
+  border-radius: 5px;
+}
+
+.slides-close {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  color: #961414;
+  font-size: 40px;
+  font-weight: bold;
+  cursor: pointer;
+  z-index: 10;
+}
+
+.slides-close:hover {
+  color: #ff0000;
+}
+
+/* Кнопки навигации слайдов */
+.slide-nav-container {
+  position: absolute;
+  width: 100%;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  display: flex;
+  justify-content: space-between;
+  padding: 0 15px;
+  box-sizing: border-box;
+  pointer-events: none;
+  z-index: 10;
+}
+
+.slide-nav {
+  pointer-events: all;
+  background: rgba(150, 20, 20, 0.7);
+  color: white;
+  border: none;
+  width: 50px;
+  height: 80px;
+  font-size: 30px;
+  cursor: pointer;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.slide-nav:hover {
+  background: #961414;
   transform: scale(1.05);
 }
 
-/* Связь со мной */
+.slide-prev {
+  left: 20px;
+}
+
+.slide-next {
+  right: 20px;
+}
+
+/* Подпись и индикатор слайдов */
+.slide-footer {
+  position: absolute;
+  bottom: 20px;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+}
+
+.slide-caption {
+  color: #fff;
+  font-size: 16px;
+  max-width: 70%;
+  text-align: left;
+  background-color: rgba(0, 0, 0, 0.7);
+  padding: 10px 15px;
+  border-radius: 5px;
+}
+
+.slide-indicator {
+  color: #fff;
+  background-color: rgba(0, 0, 0, 0.7);
+  padding: 5px 15px;
+  border-radius: 20px;
+  font-size: 14px;
+}
+
+/* Контакты */
 .contact {
   padding: 50px 20px;
   background-image: url(images/background.png);
   text-align: center;
-  margin: 0; /* Сбрасываем внешние отступы */
 }
 
 .contact-info {
   max-width: 600px;
   margin: 0 auto;
-  text-align: center;
-  padding: 0; /* Сбрасываем внутренние отступы */
 }
 
 .contact h2 {
@@ -212,24 +412,19 @@ a {
 
 .social-links {
   display: flex;
-  flex-direction: row; /* Меняем на строку */
-  gap: 20px; /* Расстояние между ссылками */
-  justify-content: center; /* Центрируем ссылки по горизонтали */
-  align-items: center; /* Центрируем ссылки по вертикали */
-  flex-wrap: wrap; /* Если ссылок много, они переносятся на новую строку */
-  padding: 0; /* Сбрасываем внутренние отступы */
-  margin: 0 auto; /* Центрируем контейнер */
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
 }
 
 .social-link {
   display: flex;
-  align-items: center; /* Выравниваем иконки и текст по центру внутри ссылки */
+  align-items: center;
   gap: 10px;
   color: #961414;
   font-size: 1.1rem;
   transition: color 0.3s ease;
-  text-align: left; /* Выравниваем текст по левому краю */
-  padding: 10px; /* Добавляем отступы для лучшего вида */
+  padding: 10px;
 }
 
 .social-link:hover {
@@ -254,165 +449,161 @@ a {
   color: #fff;
 }
 
-/* Стили для модального окна */
-.modal {
-  display: none; /* Скрыто по умолчанию */
-  position: fixed;
-  z-index: 1000;
-  padding-top: 60px;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  overflow: auto;
-  background-color: rgba(0, 0, 0, 0.9); /* Полупрозрачный черный фон */
-}
-
-.modal-content {
-  margin: auto;
-  display: block;
-  max-width: 80%;
-  max-height: 80%;
-}
-
-.close {
-  position: absolute;
-  top: 20px;
-  right: 35px;
-  color: #961414;
-  font-size: 40px;
-  font-weight: bold;
-  transition: 0.3s;
-  cursor: pointer;
-}
-
-.close:hover,
-.close:focus {
-  color: #ff0000;
-  text-decoration: none;
-  cursor: pointer;
-}
-
-
-.modal-description {
-    text-align: center; /* Центрируем текст */
-    color: #fff; /* Белый текст */
-    font-size: 1rem; /* Размер шрифта */
-    margin-top: 10px; /* Отступ сверху */
-    padding: 10px; /* Внутренние отступы */
-    background-color: rgba(0, 0, 0, 0.7); /* Полупрозрачный фон */
-    border-radius: 5px; /* Скругленные углы */
-    max-width: 80%; /* Ограничиваем ширину */
-    margin-left: auto;
-    margin-right: auto;
+/* Анимации */
+@keyframes fade {
+  from {
+    opacity: 0.4;
   }
+  to {
+    opacity: 1;
+  }
+}
 
-  /* Медиа-запрос для мобильных устройств */
+/* Адаптивность */
 @media (max-width: 768px) {
-    /* Общие стили */
-    body {
-      font-size: 14px; /* Уменьшаем базовый размер шрифта */
-    }
-  
-    h1 {
-      font-size: 2rem; /* Уменьшаем заголовки */
-    }
-  
-    h2 {
-      font-size: 1.5rem;
-    }
-  
-    h3 {
-      font-size: 1.2rem;
-    }
-  
-    .btn {
-      padding: 12px 24px; /* Увеличиваем кнопки для удобного нажатия */
-      font-size: 1rem;
-    }
-  
-    /* Главный экран */
-    .hero {
-      height: 30vh; /* Увеличиваем высоту для мобилок */
-      padding: 20px;
-    }
-  
-    .hero-content h1 {
-      font-size: 2rem;
-    }
-  
-    .hero-content p {
-      font-size: 1rem;
-    }
-  
-    /* Обо мне */
-    .about {
-      padding: 20px;
-      flex-direction: column; /* Меняем направление на колонку */
-      text-align: center;
-    }
-  
-    .about-content {
-      flex-direction: column;
-      align-items: center;
-      gap: 20px;
-    }
-  
-    .about-image img {
-      width: 150px; /* Уменьшаем размер изображения */
-      height: 150px;
-    }
-  
-    .skills-container {
-      flex-direction: column; /* Меняем направление на колонку */
-      gap: 20px;
-    }
-  
-    /* Портфолио */
-    .portfolio {
-      padding: 20px;
-    }
-  
-    .portfolio-tabs {
-      display: flex;
-      flex-wrap: wrap; /* Переносим кнопки на новую строку */
-      gap: 10px;
-      justify-content: center;
-    }
-  
-    .tab-button {
-      padding: 8px 16px;
-      font-size: 0.9rem;
-    }
-  
-    .portfolio-grid {
-      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Уменьшаем колонки */
-      gap: 10px;
-    }
-  
-    /* Связь со мной */
-    .contact {
-      padding: 20px;
-    }
-  
-    .social-links {
-      flex-direction: column; /* Меняем направление на колонку */
-      gap: 10px;
-    }
-  
-    .social-link {
-      font-size: 1rem;
-    }
-  
-    /* Модальное окно */
-    .modal-content {
-      max-width: 90%;
-      max-height: 90%;
-    }
-  
-    .close {
-      top: 10px;
-      right: 20px;
-      font-size: 30px;
-    }
+  body {
+    font-size: 14px;
   }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+  }
+
+  h3 {
+    font-size: 1.2rem;
+  }
+
+  .btn {
+    padding: 12px 24px;
+    font-size: 1rem;
+  }
+
+  .hero {
+    height: 30vh;
+    padding: 20px;
+  }
+
+  .hero-content h1 {
+    font-size: 2rem;
+  }
+
+  .hero-content p {
+    font-size: 1rem;
+  }
+
+  .about {
+    padding: 20px;
+    flex-direction: column;
+  }
+
+  .about-content {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .about-image img {
+    width: 150px;
+    height: 150px;
+  }
+
+  .skills-container {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .portfolio {
+    padding: 20px;
+  }
+
+  .portfolio-tabs {
+    gap: 5px;
+  }
+
+  .tab-button {
+    padding: 8px 12px;
+    font-size: 0.9rem;
+  }
+
+  .portfolio-grid {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 10px;
+  }
+
+  .portfolio-item.cases img {
+    width: 150px;
+    height: 150px;
+  }
+
+  /* Адаптация кнопок навигации для мобильных */
+  .slide-nav-container {
+    top: 60%;
+  }
+
+  .slide-nav {
+    width: 40px;
+    height: 60px;
+    font-size: 24px;
+    transform: translateY(20px);
+  }
+
+  .slide-prev {
+    left: 10px;
+  }
+
+  .slide-next {
+    right: 10px;
+  }
+
+  .contact {
+    padding: 20px;
+  }
+
+  .social-links {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .modal-content {
+    max-width: 95%;
+    margin-top: 30px;
+  }
+
+  .close,
+  .slides-close {
+    top: 10px;
+    right: 15px;
+    font-size: 30px;
+  }
+
+  .slides-container {
+    width: 95%;
+    height: 60vh;
+  }
+
+  .slide-footer {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .slide-caption {
+    max-width: 100%;
+    text-align: center;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .slide-nav-container {
+    top: 65%;
+  }
+
+  .slide-nav {
+    width: 35px;
+    height: 50px;
+    font-size: 20px;
+  }
+}
