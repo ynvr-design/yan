@@ -1,3 +1,34 @@
+// Функция для создания лоадера
+function createLoader() {
+  const loader = document.createElement("div");
+  loader.className = "image-loader";
+  loader.innerHTML = '<span class="loader"></span>';
+  return loader;
+}
+
+// Обработка загрузки изображений
+document.querySelectorAll(".portfolio-item img").forEach((img) => {
+  const loader = createLoader();
+  img.parentNode.insertBefore(loader, img);
+
+  // Если изображение уже загружено (из кеша)
+  if (img.complete) {
+    img.classList.add("loaded");
+    loader.remove();
+  } else {
+    img.addEventListener("load", function () {
+      this.classList.add("loaded");
+      loader.style.opacity = "0";
+      setTimeout(() => loader.remove(), 300);
+    });
+
+    img.addEventListener("error", function () {
+      loader.innerHTML = "Ошибка загрузки";
+      setTimeout(() => loader.remove(), 2000);
+    });
+  }
+});
+
 document.addEventListener("DOMContentLoaded", function () {
   // ========== ФИЛЬТРАЦИЯ РАБОТ ==========
   const tabButtons = document.querySelectorAll(".tab-button");
