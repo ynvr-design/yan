@@ -67,13 +67,21 @@ document.addEventListener("DOMContentLoaded", function () {
   const currentSlideIndicator = document.querySelector(".current-slide");
   const totalSlidesIndicator = document.querySelector(".total-slides");
 
+  // 3. Модальное окно для кейсов (Behance стиль)
+  const caseModal = document.getElementById("case-modal");
+  const caseModalContent = document.querySelector(".case-modal-content");
+  const caseCaption = document.querySelector(".case-caption");
+  const closeCaseBtn = document.querySelector(".case-close");
+
   let currentSlideIndex = 0;
   let slidesData = [];
 
   // Обработчики кликов для работ
   document.querySelectorAll(".portfolio-item img").forEach((img) => {
     img.addEventListener("click", function () {
-      if (this.dataset.slides) {
+      if (this.parentElement.classList.contains("cases")) {
+        openCaseModal(this);
+      } else if (this.dataset.slides) {
         openSlideshow(this);
       } else {
         openStandardModal(this);
@@ -129,6 +137,32 @@ document.addEventListener("DOMContentLoaded", function () {
     currentSlideIndicator.textContent = currentSlideIndex + 1;
   }
 
+  // Открытие модального окна кейса (Behance стиль)
+  function openCaseModal(element) {
+    const slides = JSON.parse(element.dataset.slides);
+    
+    // Очищаем предыдущее содержимое
+    caseModalContent.innerHTML = "";
+    
+    // Добавляем все изображения кейса
+    slides.forEach(slide => {
+      const slideDiv = document.createElement("div");
+      slideDiv.className = "case-slide";
+      slideDiv.innerHTML = `<img src="${slide}" alt="Case slide">`;
+      caseModalContent.appendChild(slideDiv);
+    });
+    
+    // Устанавливаем описание
+    caseCaption.textContent = element.dataset.description || "";
+    
+    // Открываем модальное окно
+    caseModal.style.display = "block";
+    document.body.style.overflow = "hidden";
+    
+    // Прокручиваем в начало
+    caseModalContent.scrollTo(0, 0);
+  }
+
   // Навигация по слайдам
   prevButton.addEventListener("click", () => {
     showSlide(currentSlideIndex - 1);
@@ -154,10 +188,16 @@ document.addEventListener("DOMContentLoaded", function () {
     closeModal(slidesModal);
   });
 
+  // Кейсы
+  closeCaseBtn.addEventListener("click", () => {
+    closeModal(caseModal);
+  });
+
   // Закрытие по клику вне контента
   window.addEventListener("click", (event) => {
     if (event.target === standardModal) closeModal(standardModal);
     if (event.target === slidesModal) closeModal(slidesModal);
+    if (event.target === caseModal) closeModal(caseModal);
   });
 
   // Навигация клавиатурой
@@ -180,6 +220,11 @@ document.addEventListener("DOMContentLoaded", function () {
           closeModal(slidesModal);
           break;
       }
+    }
+
+    // Для кейсов
+    if (caseModal.style.display === "block" && event.key === "Escape") {
+      closeModal(caseModal);
     }
   });
 
