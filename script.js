@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 // Функция для создания лоадера
 function createLoader() {
   const loader = document.createElement("div");
@@ -255,7 +255,7 @@ document.addEventListener("DOMContentLoaded", function () {
     if (touchEndX > touchStartX + 50) showSlide(currentSlideIndex - 1); // Свайп вправо
   }
 });
-=======
+
 // Функция для создания лоадера
 function createLoader() {
   const loader = document.createElement("div");
@@ -524,4 +524,4 @@ document.addEventListener("DOMContentLoaded", function () {
     if (touchEndX > touchStartX + 50) showSlide(currentSlideIndex - 1); // Свайп вправо
   }
 });
->>>>>>> d062bad (добавлены новые файлы и фото)
+
