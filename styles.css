@@ -1462,4 +1462,31 @@ a {
   max-width: 80%;
   border-radius: 5px;
 }
+.Myworks {
+  color: white;
+}
 
+.language-switcher {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  display: flex;
+  gap: 10px;
+  z-index: 1000;
+}
+
+.language-switcher button {
+  background-color: #961414;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 6px 12px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.language-switcher button:hover {
+  background-color: #ff0000;
+}

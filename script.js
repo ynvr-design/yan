@@ -525,3 +525,23 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 });
 
+function setLanguage(lang) {
+  localStorage.setItem("lang", lang);
+  fetch(`locales/${lang}.json`)
+    .then(res => res.json())
+    .then(data => {
+      document.querySelectorAll("[data-i18n]").forEach(el => {
+        const keys = el.getAttribute("data-i18n").split(".");
+        let text = data;
+        keys.forEach(k => text = text?.[k]);
+        if (text) el.textContent = text;
+      });
+    });
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  const lang = localStorage.getItem("lang") || "ru";
+  setLanguage(lang);
+});
+
+

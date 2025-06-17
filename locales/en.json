@@ -1,0 +1,52 @@
+{
+  "hero": {
+    "name": "Yan Chernyshov",
+    "description": "Design is not just work — it's art. I create visuals that captivate.",
+    "button": "View Portfolio"
+  },
+  "about": {
+    "title": "Who am I?",
+    "desc1": "Hi! My name is Yan, I'm a graphic designer with 4 years of experience. I specialize in graphic design, typography, and creating visually striking compositions.",
+    "desc2": "I constantly improve my skills and strive for excellence in every project. I work effectively both independently and in teams, and I get along well with clients and colleagues.",
+    "desc3": "I bring creative ideas and take responsibility for every task.",
+    "hardTitle": "HARD SKILLS",
+    "softTitle": "SOFT SKILLS",
+    "aiSkills": "AI Tools (ChatGpt, DeepSeek, Krea, Stable Diffusion, Adobe Firefly, VEO3, Runway)",
+    "soft": {
+      "responsibility": "Responsibility",
+      "proactivity": "Proactivity",
+      "learnability": "Fast Learner",
+      "flexibility": "Flexibility",
+      "stress": "Stress-resilience",
+      "punctuality": "Punctuality",
+      "friendliness": "Friendliness",
+      "mobility": "Mobility"
+    },
+    "experienceTitle": "Work Experience",
+    "years": "2021 - Present",
+    "note": "This portfolio contains a selection of my work*"
+  },
+  "tabs": {
+    "works": "My Works",
+    "covers": "Covers",
+    "posters": "Posters",
+    "illustrations": "Illustrations",
+    "typography": "Custom Typography",
+    "afishi": "Event Posters",
+    "products": "Product Cards",
+    "cases": "Cases"
+  },
+  "contact": {
+    "title": "Contact Me",
+    "text": "If you'd like to discuss a project or just say hello, write to me:",
+    "email": "Email",
+    "instagram": "Instagram",
+    "behance": "Behance",
+    "telegramPersonal": "Personal Telegram",
+    "telegramChannel": "Telegram Channel",
+    "vk": "VK"
+  },
+  "footer": {
+    "text": "© 2025 Yan Chernyshev YNVR. All rights reserved."
+  }
+}

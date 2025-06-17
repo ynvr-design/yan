@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Портфолио YNVR</title>
+    <title>Portfolio YNVR</title>
     <link rel="stylesheet" href="styles.css" />
     <link
       href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto:wght@400;500&display=swap"
@@ -11,97 +11,97 @@
     />
   </head>
   <body>
+    <div class="language-switcher">
+  <button onclick="setLanguage('ru')">RU</button>
+  <button onclick="setLanguage('en')">EN</button>
+</div>
     <!-- Главный экран -->
     <section id="hero" class="hero">
       <div class="hero-content">
-        <h1>Ян Чернышов</h1>
-        <p>
+        <h1 data-i18n="hero.name">Ян Чернышов</h1>
+        <p data-i18n="hero.description">
           Дизайн — это не просто работа, это искусство. Я создаю визуалы,
           которые цепляют.
         </p>
-        <a href="#portfolio" class="btn">Посмотреть работы</a>
+        <a href="#portfolio" class="btn" data-i18n="hero.button">Посмотреть работы</a>
       </div>
     </section>
 
     <!-- Обо мне -->
-    <section id="about" class="about">
-      <div class="about-content">
-        <div class="about-image">
-          <img src="images/ava.png" alt="Фото дизайнера" />
+<section id="about" class="about">
+  <div class="about-content">
+    <div class="about-image">
+      <img src="images/ava.png" alt="Фото дизайнера" />
+    </div>
+    <div class="about-text">
+      <h2 data-i18n="about.title">Кто я?</h2>
+
+      <p data-i18n="about.desc1">
+        Привет! Меня зовут Ян, я графический дизайнер с 4-летним опытом...
+      </p>
+      <p data-i18n="about.desc2">
+        Постоянно развиваю свои навыки и стремлюсь к совершенству...
+      </p>
+      <p data-i18n="about.desc3">
+        Готов вносить креативные идеи и ответственно подхожу...
+      </p>
+
+      <div class="skills-container">
+        <div class="hard-skills">
+          <h3 data-i18n="about.hardTitle">HARD SKILLS</h3>
+          <ul>
+            <li>Adobe Photoshop</li>
+            <li>Adobe Illustrator</li>
+            <li>Adobe Premier Pro</li>
+            <li>Adobe After Effects</li>
+            <li>Adobe Substance 3D Painter</li>
+            <li>Blender</li>
+            <li data-i18n="about.aiSkills">
+              Работа с ИИ (ChatGpt, DeepSeek, Krea, Stable Diffusion, Adobe Firefly, VEO3, Runway)
+            </li>
+            <li>HTML, CSS, JavaScript</li>
+          </ul>
         </div>
-        <div class="about-text">
-          <h2>Кто я?</h2>
-          <p>
-            Привет! Меня зовут Ян, я графический дизайнер с 4-летним опытом
-            работы. Специализируюсь на графическом дизайне, типографике и
-            создании визуально привлекательных композиций.
-          </p>
-          <p>
-            Постоянно развиваю свои навыки и стремлюсь к совершенству в каждом
-            проекте. Умею эффективно работать как самостоятельно, так и в
-            команде, легко нахожу общий язык с коллегами и заказчиками.
-          </p>
-          <p>
-            Готов вносить креативные идеи и ответственно подхожу к выполнению
-            задач.
-          </p>
-          <div class="skills-container">
-            <div class="hard-skills">
-              <h3>HARD SKILLS</h3>
-              <ul>
-                <li>Adobe Photoshop</li>
-                <li>Adobe Illustrator</li>
-                <li>Adobe Premier Pro</li>
-                <li>Adobe After Effects</li>
-                <li>Adobe Substance 3D Painter</li>
-                <li>Blender</li>
-                <li>
-                  Работа с ИИ (ChatGpt, DeepSeek, Krea, Stable Diffusion, Adobe
-                  Firefly, VEO3, Runway)
-                </li>
-                <li>HTML, CSS, JavaScript</li>
-              </ul>
-            </div>
-            <div class="soft-skills">
-              <h3>SOFT SKILLS</h3>
-              <ul>
-                <li>Ответственность</li>
-                <li>Проактивность</li>
-                <li>Легкая обучаемость</li>
-                <li>Гибкость</li>
-                <li>Стрессоустойчивость</li>
-                <li>Пунктуальность</li>
-                <li>Дружелюбность</li>
-                <li>Мобильность</li>
-              </ul>
-            </div>
-          </div>
-          <h3>Опыт работы</h3>
-          <p>
-            <strong>Freelance (YNVR)</strong> <br />
-            2021 - Настоящее время
-          </p>
-          <span class="postscriptum">
-            В этом портфолио представлена часть моих работ*
-          </span>
+        <div class="soft-skills">
+          <h3 data-i18n="about.softTitle">SOFT SKILLS</h3>
+          <ul>
+            <li data-i18n="about.soft.responsibility">Ответственность</li>
+            <li data-i18n="about.soft.proactivity">Проактивность</li>
+            <li data-i18n="about.soft.learnability">Легкая обучаемость</li>
+            <li data-i18n="about.soft.flexibility">Гибкость</li>
+            <li data-i18n="about.soft.stress">Стрессоустойчивость</li>
+            <li data-i18n="about.soft.punctuality">Пунктуальность</li>
+            <li data-i18n="about.soft.friendliness">Дружелюбность</li>
+            <li data-i18n="about.soft.mobility">Мобильность</li>
+          </ul>
         </div>
       </div>
-    </section>
+
+      <h3 data-i18n="about.experienceTitle">Опыт работы</h3>
+      <p>
+        <strong>Freelance (YNVR)</strong> <br />
+        <span data-i18n="about.years">2021 - Настоящее время</span>
+      </p>
+      <span class="postscriptum" data-i18n="about.note">
+        В этом портфолио представлена часть моих работ*
+      </span>
+    </div>
+  </div>
+</section>
+
 
     <!-- Портфолио -->
     <section id="portfolio" class="portfolio">
-      <h2>Мои работы</h2>
-      <div class="portfolio-tabs">
-        <button class="tab-button active" data-tab="covers">Обложки</button>
-        <button class="tab-button" data-tab="plakats">Постеры</button>
-        <button class="tab-button" data-tab="illustration">Иллюстрации</button>
-        <button class="tab-button" data-tab="posters">
-          Кастомная Типографика
-        </button>
-        <button class="tab-button" data-tab="afishi">Афиши</button>
-        <button class="tab-button" data-tab="products">Карточки товаров</button>
-        <button class="tab-button" data-tab="cases">Кейсы</button>
-      </div>
+      <h2 class="Myworks" data-i18n="tabs.works">Мои работы</h2>
+     <div class="portfolio-tabs">
+  <button class="tab-button active" data-tab="covers" data-i18n="tabs.covers">Обложки</button>
+  <button class="tab-button" data-tab="plakats" data-i18n="tabs.posters">Постеры</button>
+  <button class="tab-button" data-tab="illustration" data-i18n="tabs.illustrations">Иллюстрации</button>
+  <button class="tab-button" data-tab="posters" data-i18n="tabs.typography">Кастомная Типографика</button>
+  <button class="tab-button" data-tab="afishi" data-i18n="tabs.afishi">Афиши</button>
+  <button class="tab-button" data-tab="products" data-i18n="tabs.products">Карточки товаров</button>
+  <button class="tab-button" data-tab="cases" data-i18n="tabs.cases">Кейсы</button>
+</div>
       <div class="portfolio-grid">
         <!-- Пример работ -->
         <div class="portfolio-item covers">
@@ -675,38 +675,44 @@
 
     <!-- Связь со мной -->
     <section id="contact" class="contact">
-      <h2>Связь со мной</h2>
-      <div class="contact-info">
-        <p>
-          Если хотите обсудить проект или просто поздороваться, напишите мне:
-        </p>
-        <div class="social-links">
-          <a href="mailto:ynvr.job@gmail.com" class="social-link">
-            <img class="mail" src="images/Mail.png" alt="Email" /> Почта
-          </a>
-          <a href="https://instagram.com/ynvrdesign" class="social-link">
-            <img src="images/Instagram.svg" alt="Instagram" /> Instagram
-          </a>
-          <a href="https://www.behance.net/ynvrdesign" class="social-link">
-            <img src="images/Behance.png" alt="Behance" /> Behance
-          </a>
-          <a href="https://t.me/ynvr132" class="social-link">
-            <img src="images/Telegram.svg" alt="Telegramm" /> Личный Телеграмм
-          </a>
-          <a href="https://t.me/ynvrdesign" class="social-link">
-            <img src="images/Telegram.svg" alt="Telegramm" /> Телеграмм Канал
-          </a>
-          <a href="https://vk.com/yanvaruwu" class="social-link">
-            <img src="images/vk.png" alt=Vk" /> ВКонтакте
-          </a>
-        </div>
-      </div>
-    </section>
+  <h2 data-i18n="contact.title">Связь со мной</h2>
+  <div class="contact-info">
+    <p data-i18n="contact.text">
+      Если хотите обсудить проект или просто поздороваться, напишите мне:
+    </p>
+    <div class="social-links">
+      <a href="mailto:ynvr.job@gmail.com" class="social-link">
+        <img class="mail" src="images/Mail.png" alt="Email" />
+        <span data-i18n="contact.email">Почта</span>
+      </a>
+      <a href="https://instagram.com/ynvrdesign" class="social-link">
+        <img src="images/Instagram.svg" alt="Instagram" />
+        <span data-i18n="contact.instagram">Instagram</span>
+      </a>
+      <a href="https://www.behance.net/ynvrdesign" class="social-link">
+        <img src="images/Behance.png" alt="Behance" />
+        <span data-i18n="contact.behance">Behance</span>
+      </a>
+      <a href="https://t.me/ynvr132" class="social-link">
+        <img src="images/Telegram.svg" alt="Telegram" />
+        <span data-i18n="contact.telegramPersonal">Личный Телеграмм</span>
+      </a>
+      <a href="https://t.me/ynvrdesign" class="social-link">
+        <img src="images/Telegram.svg" alt="Telegram" />
+        <span data-i18n="contact.telegramChannel">Телеграмм Канал</span>
+      </a>
+      <a href="https://vk.com/yanvaruwu" class="social-link">
+        <img src="images/vk.png" alt="VK" />
+        <span data-i18n="contact.vk">ВКонтакте</span>
+      </a>
+    </div>
+  </div>
+</section>
 
-    <!-- Футер -->
-    <footer class="footer">
-      <p>© 2025 Ян Чернышов YNVR. Все права защищены.</p>
-    </footer>
+<!-- Футер -->
+<footer class="footer">
+  <p data-i18n="footer.text">© 2025 Ян Чернышов YNVR. Все права защищены.</p>
+</footer>
 
     <div id="modal" class="modal">
       <span class="close">&times;</span>
@@ -756,4 +762,4 @@
     <!-- Новый блок для описания -->
   </div>
 </html>
->>>>>>> d062bad (добавлены новые файлы и фото)
+
